@@ -17,7 +17,8 @@
     </header>
     <section class="content">
       <nav class="side_nav">
-        <p class="last_update_time">Last update: <%= @page_opened_at %></p>
+        <!-- TODO Playtime P.T. -->
+        <p class="last_update_time">P.T. Last update: <%= @page_opened_at %></p>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/questions">Questions</a></li>
@@ -26,6 +27,13 @@
         </ul>
       </nav>
       <main class='<%= controller.controller_name %>'>
+        <!-- TODO Playtime P.T. -->
+        <% # || 0, as session[:counter] may be null %>
+        <% if (session[:counter] || 0) > 5 %>
+          <p>
+            P.T. session[:counter] (for store controller’s index action) <%= session[:counter] %>
+          </p>
+        <% end %>
         <%= yield %>
       </main>
     </section>
