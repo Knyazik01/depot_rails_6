@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   def index
-    # TODO Playtime P.T.
+    # TODO Remove Playtime P.T.
     if session[:counter].nil?
       session[:counter] = 0
     end
