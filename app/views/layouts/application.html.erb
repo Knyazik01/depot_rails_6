@@ -17,6 +17,9 @@
     </header>
     <section class="content">
       <nav class="side_nav">
+        <div id='cart' class='carts'>
+          <%= render_if @cart && @cart.line_items.any?, @cart %>
+        </div>
         <!-- TODO Playtime P.T. -->
         <p class="last_update_time">P.T. Last update: <%= @page_opened_at %></p>
         <ul>

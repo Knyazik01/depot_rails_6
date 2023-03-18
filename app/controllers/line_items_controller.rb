@@ -23,16 +23,16 @@ class LineItemsController < ApplicationController
 
   # POST /line_items or /line_items.json
   def create
-    product = Product.find(params[:product_id])
+    product    = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
 
     respond_to do |format|
       if @line_item.save
-        # TODO Remove Playtime P.T.
-        # reset counter
+        # TODO Remove Playtime P.T. reset counter
         session[:counter] = 0
 
-        format.html { redirect_to @line_item.cart, notice: 'Product was successfully added to cart.' }
+        format.html { redirect_to store_index_url }
+        format.js { @current_item = @line_item }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }
