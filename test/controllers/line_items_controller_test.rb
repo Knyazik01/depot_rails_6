@@ -56,6 +56,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :success
-    assert_match /<tr class=\\"line-item-highlight/, @response.body
+    assert_match /<tr class=\\'line-item-highlight/, @response.body
   end
 end
