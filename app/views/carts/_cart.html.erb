@@ -22,7 +22,9 @@
 
       <%= button_to 'Checkout', new_order_path,
                     method: :get,
-                    class: 'checkout' %>
+                    class: 'checkout',
+                    disabled: current_page?(new_order_path)
+      %>
     </div>
   </article>
 <% end %>
