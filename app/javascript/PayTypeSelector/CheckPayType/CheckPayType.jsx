@@ -3,7 +3,9 @@ import React from 'react';
 const CheckPayType = () => (
   <div>
     <div className='field'>
-      <label htmlFor='order_routing_number'>Routing #</label>
+      <label htmlFor='order_routing_number'>
+        {I18n.t('orders.form.check_pay_type.routing_number')}
+      </label>
       <input
         type='password'
         name='order[routing_number]'
@@ -11,7 +13,9 @@ const CheckPayType = () => (
       />
     </div>
     <div className='field'>
-      <label htmlFor='order_account_number'>Account #</label>
+      <label htmlFor='order_account_number'>
+        {I18n.t('orders.form.check_pay_type.account_number')}
+      </label>
       <input
         type='text'
         name='order[account_number]'

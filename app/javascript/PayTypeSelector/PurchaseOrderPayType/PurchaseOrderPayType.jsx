@@ -3,7 +3,9 @@ import React from 'react';
 const PurchaseOrderPayType = () => (
   <div>
     <div className='field'>
-      <label htmlFor='order_po_number'>PO #</label>
+      <label htmlFor='order_po_number'>
+        {I18n.t('orders.form.purchase_order_pay_type.po_number')}
+      </label>
       <input
         type='password'
         name='order[po_number]'

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_i18n_locale_from_params
   before_action :set_opened_time
   before_action :authorize
 
@@ -14,5 +15,19 @@ class ApplicationController < ActionController::Base
 
   def set_opened_time
     @page_opened_at = Time.now.strftime('%m/%d/%Y %H:%M:%S')
+  end
+
+  protected
+
+  def set_i18n_locale_from_params
+    if params[:locale]
+      if I18n.available_locales.map(&:to_s).include?(params[:locale])
+        I18n.locale = params[:locale]
+      else
+        flash.now[:notice] =
+          "#{params[:locale]} translation not available"
+        logger.error flash.now[:notice]
+      end
+    end
   end
 end
