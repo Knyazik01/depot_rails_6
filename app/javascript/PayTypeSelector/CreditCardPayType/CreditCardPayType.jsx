@@ -1,5 +1,6 @@
 import React from 'react';
 
+const year = `${new Date().getFullYear()}`.slice(-2);
 const CreditCardPayType = () => (
   <div>
     <div className='field'>
@@ -21,7 +22,7 @@ const CreditCardPayType = () => (
         name='order[expiration_date]'
         id='order_expiration_date'
         size='9'
-        placeholder='e.g. 03/19'
+        placeholder={`e.g. 03/${year}`}
       />
     </div>
   </div>
